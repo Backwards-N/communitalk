@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But descend into directories
+!*/
+
+# And not these files...
+!.gitignore
+!README.md
+!config.json
+!projects/**

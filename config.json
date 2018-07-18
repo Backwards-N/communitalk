@@ -1,0 +1,8 @@
+{
+  "serverName": null,
+  "mainPort": 4237,
+  "buildPort": 4238,
+  "password": "",
+  "sessionSecret": "ea6246ed1ecb0f1f721d441aeb62d0f46eb10af513f23675741926202bcec3ee5b62551f22c8c7f120cc9b3af6701abe",
+  "maxRecentBuilds": 10
+}
