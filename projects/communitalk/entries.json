@@ -1,4 +1,27 @@
 {
-  "nextEntryId": 0,
-  "nodes": []
+  "nextEntryId": 5,
+  "nodes": [
+    {
+      "id": "1",
+      "name": "UI",
+      "type": null,
+      "children": [
+        {
+          "id": "0",
+          "name": "Logo",
+          "type": "sprite"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Loading Screen",
+      "type": "scene"
+    },
+    {
+      "id": "4",
+      "name": "Loading",
+      "type": "font"
+    }
+  ]
 }
