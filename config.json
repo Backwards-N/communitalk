@@ -3,6 +3,6 @@
   "mainPort": 4237,
   "buildPort": 4238,
   "password": "",
-  "sessionSecret": "ea6246ed1ecb0f1f721d441aeb62d0f46eb10af513f23675741926202bcec3ee5b62551f22c8c7f120cc9b3af6701abe",
+  "sessionSecret": "698deb07a29aa1835cc6c07bc588cd7d8ca58ced75eec0a68c40764a6be3c6a9f842ed08d80e75539baea7137a816115",
   "maxRecentBuilds": 10
 }

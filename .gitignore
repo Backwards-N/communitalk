@@ -5,7 +5,7 @@
 !*/
 
 # And not these files...
-!.gitignore
-!README.md
-!config.json
+!/.gitignore
+!/README.md
+!/config.json
 !projects/**
