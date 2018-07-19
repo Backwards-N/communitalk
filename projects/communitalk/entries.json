@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 5,
+  "nextEntryId": 8,
   "nodes": [
     {
       "id": "1",
@@ -22,6 +22,21 @@
       "id": "4",
       "name": "Loading",
       "type": "font"
+    },
+    {
+      "id": "5",
+      "name": "Scene",
+      "type": "scene"
+    },
+    {
+      "id": "7",
+      "name": "Test",
+      "type": "tileMap"
+    },
+    {
+      "id": "6",
+      "name": "Tile Set",
+      "type": "tileSet"
     }
   ]
 }
