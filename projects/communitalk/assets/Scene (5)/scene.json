@@ -10,7 +10,7 @@
           "type": "TileMapRenderer",
           "config": {
             "formatVersion": 1,
-            "tileMapAssetId": null,
+            "tileMapAssetId": "8",
             "tileSetAssetId": null,
             "castShadow": false,
             "receiveShadow": false,
