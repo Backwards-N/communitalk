@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 9,
+  "nextEntryId": 13,
   "nodes": [
     {
       "id": "1",
@@ -25,7 +25,7 @@
     },
     {
       "id": "5",
-      "name": "Scene",
+      "name": "HubWorld",
       "type": "scene"
     },
     {
@@ -34,8 +34,28 @@
       "type": "tileSet"
     },
     {
+      "id": "9",
+      "name": "PlayerBotSprite",
+      "type": "sprite"
+    },
+    {
       "id": "8",
       "name": "Hub",
+      "type": "tileMap"
+    },
+    {
+      "id": "10",
+      "name": "Core",
+      "type": "script"
+    },
+    {
+      "id": "11",
+      "name": "collisions",
+      "type": "tileSet"
+    },
+    {
+      "id": "12",
+      "name": "HubCollisions",
       "type": "tileMap"
     }
   ]
