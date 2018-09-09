@@ -1,3 +1,16 @@
 {
-  "behaviors": {}
+  "behaviors": {
+    "CharacterBehavior": {
+      "scriptId": "10",
+      "line": 2,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "CameraBehavior": {
+      "scriptId": "10",
+      "line": 49,
+      "parentBehavior": null,
+      "properties": []
+    }
+  }
 }

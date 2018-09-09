@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 13,
+  "nextEntryId": 14,
   "nodes": [
     {
       "id": "1",
@@ -27,6 +27,11 @@
       "id": "5",
       "name": "HubWorld",
       "type": "scene"
+    },
+    {
+      "id": "13",
+      "name": "BluSkies",
+      "type": "sprite"
     },
     {
       "id": "6",
