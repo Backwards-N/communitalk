@@ -8,7 +8,7 @@
     },
     "CameraBehavior": {
       "scriptId": "10",
-      "line": 49,
+      "line": 69,
       "parentBehavior": null,
       "properties": []
     }

@@ -8,21 +8,30 @@ class CharacterBehavior extends Sup.Behavior {
   
   update() {
     let keyFrame = 0;
+    let velocity = this.actor.arcadeBody2D.getVelocity();
     
     if (Sup.Input.isKeyDown("A")) {
-      this.actor.move(-0.05, 0, 0);
+      velocity.x = -0.05;
       this.actor.spriteRenderer.setAnimationFrameTime(6);
       
+      if (!Sup.Input.isKeyDown("S") || !Sup.Input.isKeyDown("W")) {
+        velocity.y = 0;
+      }
+      
       keyFrame = 6;
-    }
-    if (Sup.Input.isKeyDown("D")) {
-      this.actor.move(0.05, 0, 0);
+    } else if (Sup.Input.isKeyDown("D")) {
+      velocity.x = 0.05;
       this.actor.spriteRenderer.setAnimationFrameTime(2);
+      
+      if (!Sup.Input.isKeyDown("S") || !Sup.Input.isKeyDown("W")) {
+        velocity.y = 0;
+      }
       
       keyFrame = 2;
     }
+    
     if (Sup.Input.isKeyDown("W")) {
-      this.actor.move(0, 0.025, 0);
+      velocity.y = 0.025;
       
       if (keyFrame == 6) {
         this.actor.spriteRenderer.setAnimationFrameTime(3);
@@ -30,10 +39,11 @@ class CharacterBehavior extends Sup.Behavior {
         this.actor.spriteRenderer.setAnimationFrameTime(5);
       } else {
         this.actor.spriteRenderer.setAnimationFrameTime(4);
+        velocity.x = 0;
+        keyFrame = 4;
       }
-    }
-    if (Sup.Input.isKeyDown("S")) {
-      this.actor.move(0, -0.025, 0);
+    } else if (Sup.Input.isKeyDown("S")) {
+      velocity.y = -0.025;
     
       if (keyFrame == 6) {
         this.actor.spriteRenderer.setAnimationFrameTime(7);
@@ -41,27 +51,34 @@ class CharacterBehavior extends Sup.Behavior {
         this.actor.spriteRenderer.setAnimationFrameTime(1);
       } else {
         this.actor.spriteRenderer.setAnimationFrameTime(0);
+        velocity.x = 0;
+        keyFrame = 3;
       }
     }
+    
+    if (keyFrame == 0) {
+      velocity.x = 0;
+      velocity.y = 0;
+    }
+    
+    this.actor.arcadeBody2D.setVelocity(velocity);
+    Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
   }
 }
 Sup.registerBehavior(CharacterBehavior);
 
 class CameraBehavior extends Sup.Behavior {
   update() {
-    if (Sup.Input.isKeyDown("A")) this.actor.move(-0.05, 0, 0);
-    if (Sup.Input.isKeyDown("D")) this.actor.move(0.05, 0, 0);
-    if (Sup.Input.isKeyDown("W")) this.actor.move(0, 0.025, 0);
-    if (Sup.Input.isKeyDown("S")) this.actor.move(0, -0.025, 0);
+    this.actor.setPosition(currentPlayerActor.getPosition().x, currentPlayerActor.getPosition().y, this.actor.getPosition().z);
   }
 }
 Sup.registerBehavior(CharacterBehavior);
 
-function loadWorld(world) {
+function loadWorld(world, x, y) {
   Sup.loadScene(world);
 
   let localPlayerActor = new Sup.Actor("LocalPlayer");
-  new Sup.SpriteRenderer(localPlayerActor, "PlayerBotSprite");
+  new Sup.SpriteRenderer(localPlayerActor, "PlayerHeadSprite");
   
   let skyActor = new Sup.Actor("LocalPlayer");
   new Sup.SpriteRenderer(skyActor, "BluSkies");
@@ -70,13 +87,22 @@ function loadWorld(world) {
   new Sup.Camera(cameraManActor);
   cameraManActor.camera.setOrthographicMode(true);
   
-  localPlayerActor.setPosition(0, 0, 9.5);
-  cameraManActor.setPosition(0, 0, 10);
-  skyActor.setPosition(0, 0, -200)
+  localPlayerActor.setPosition(x, y, 9.5);
+  new Sup.ArcadePhysics2D.Body(localPlayerActor,
+                               0,
+                               {movable: true,
+                                width: 0.5,
+                                height: 0.5,
+                                offset: { x: 0, y: 0 },
+                                bounce: { x: 0, y: 0 }})
+  cameraManActor.setPosition(x, y, 10);
+  skyActor.setPosition(x, y, -200)
   
   localPlayerActor.addBehavior(CharacterBehavior);
   cameraManActor.addBehavior(CameraBehavior);
   skyActor.addBehavior(CameraBehavior);
+  
+  return localPlayerActor;
 }
 
-loadWorld("HubWorld");
+let currentPlayerActor = loadWorld("HubWorld", -2, -4);

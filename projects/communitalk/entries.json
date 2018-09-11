@@ -40,7 +40,7 @@
     },
     {
       "id": "9",
-      "name": "PlayerBotSprite",
+      "name": "PlayerHeadSprite",
       "type": "sprite"
     },
     {
@@ -52,16 +52,6 @@
       "id": "10",
       "name": "Core",
       "type": "script"
-    },
-    {
-      "id": "11",
-      "name": "collisions",
-      "type": "tileSet"
-    },
-    {
-      "id": "12",
-      "name": "HubCollisions",
-      "type": "tileMap"
     }
   ]
 }

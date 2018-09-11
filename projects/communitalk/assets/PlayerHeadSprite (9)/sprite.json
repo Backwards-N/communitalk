@@ -5,7 +5,7 @@
   ],
   "filtering": "smooth",
   "wrapping": "clampToEdge",
-  "pixelsPerUnit": 512,
+  "pixelsPerUnit": 256,
   "framesPerSecond": 10,
   "opacity": null,
   "alphaTest": 0.1,
